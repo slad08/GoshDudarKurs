@@ -11,12 +11,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.RatingBar;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
 private Button buttPass,btnOthr;
 private EditText pass;
-
+private RatingBar ratBar;
+private TextView txtRes;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +32,7 @@ private EditText pass;
         pass = (EditText) findViewById(R.id.editTextPass);
         buttPass = (Button)findViewById(R.id.button_pass);
         btnOthr = (Button)findViewById(R.id.btnOther);
+
         buttPass.setOnClickListener(
                 new View.OnClickListener() {
                     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
@@ -38,6 +44,18 @@ private EditText pass;
                     }
                 }
         );
+        //Создаем RatingBar и выводим значение в txtRes
+        ratBar =(RatingBar) findViewById(R.id.ratingBar);
+        txtRes = (TextView) findViewById(R.id.result_txtV);
+
+        ratBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+                txtRes.setText("Значение: " + String.valueOf(rating));
+            }
+        });
+
+
         btnOthr.setOnClickListener(
                 new View.OnClickListener() {
                     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)

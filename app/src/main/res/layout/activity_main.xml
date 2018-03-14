@@ -7,6 +7,22 @@
     android:layout_height="match_parent"
     tools:context="android.bignerdranch.com.less_5.MainActivity">
 
+    <TextView
+        android:id="@+id/result_txtV"
+        android:layout_width="wrap_content"
+        android:layout_height="44dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Значение"
+        android:textColor="@android:color/holo_green_light"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnOther"/>
+
     <EditText
         android:id="@+id/editTextPass"
         android:layout_width="wrap_content"
@@ -20,6 +36,23 @@
         app:layout_constraintHorizontal_bias="0.575"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"/>
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="55dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:numStars="6"
+        android:rating="1.5"
+        android:stepSize="0.5"
+        app:layout_constraintBottom_toTopOf="@+id/button_pass"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.062"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPass"/>
 
     <Button
         android:id="@+id/button_pass"
