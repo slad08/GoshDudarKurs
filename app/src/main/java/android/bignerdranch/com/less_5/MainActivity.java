@@ -44,10 +44,31 @@ private EditText pass;
                     @Override
                     public void onClick(View view) {
                          buttPass.setBackgroundTintList(ColorStateList.valueOf(Color.BLUE));
-                      Toast.makeText(MainActivity.this,"Мы все поменяли",Toast.LENGTH_LONG).show();
+                   //   Toast.makeText(MainActivity.this,"Мы все поменяли",Toast.LENGTH_LONG).show();
+
+                        AlertDialog.Builder a_build = new AlertDialog.Builder(MainActivity.this);
+                        a_build.setMessage("Вы хотите закрыть приложение,а?")
+                                .setCancelable(false)
+                                .setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int wich) {
+                                        finish();
+                                        // /Toast.makeText(MainActivity.this,"Да",Toast.LENGTH_LONG).show();
+                                    }
+                                })
+                                .setNegativeButton("Нет", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialog, int wich) {
+                                        dialog.cancel();
+                                    }
+                                });
+                        AlertDialog alert = a_build.create();
+                        alert.setTitle("Закрытие приложения");
+                        alert.show();
 
                     }
                 }
+
         );
     }
 }
