@@ -1,6 +1,7 @@
 package android.bignerdranch.com.less_5;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Build;
@@ -18,7 +19,7 @@ import android.widget.Toast;
 import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
-private Button buttPass,btnOthr;
+private Button buttPass,btnOthr,btnChange;
 private EditText pass;
 private RatingBar ratBar;
 private TextView txtRes;
@@ -32,6 +33,16 @@ private TextView txtRes;
         pass = (EditText) findViewById(R.id.editTextPass);
         buttPass = (Button)findViewById(R.id.button_pass);
         btnOthr = (Button)findViewById(R.id.btnOther);
+        btnChange = (Button)findViewById(R.id.btnChange);
+
+        btnChange.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    Intent intent = new Intent(MainActivity.this,SecondActivity.class);
+                    startActivity(intent);
+            }
+        });
+
 
         buttPass.setOnClickListener(
                 new View.OnClickListener() {
@@ -52,6 +63,7 @@ private TextView txtRes;
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
                 txtRes.setText("Значение: " + String.valueOf(rating));
+               // txtRes.setText(String.valueOf(ratingBar.getRating()));
             }
         });
 
